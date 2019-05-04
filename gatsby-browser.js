@@ -1,7 +1,11 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/browser-apis/
- */
+import GoogleAnalytics from 'react-ga'
+import { siteMetadata } from './gatsby-config'
 
-// You can delete this file if you're not using it
+/**
+ * Initialize Google Analytics
+ */
+export const onClientEntry = () => {
+  if (process.env.NODE_ENV === 'production') {
+    GoogleAnalytics.initialize(siteMetadata.googleAnalyticsId)
+  }
+}

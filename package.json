@@ -1,25 +1,58 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "gatsby-starter-mapbox",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "A Gatsby starter with Mapbox GL",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Brendan C. Ward <bcward@astutespruce.com>",
   "dependencies": {
+    "@mdx-js/mdx": "^1.0.16",
+    "@mdx-js/react": "^1.0.16",
+    "@rebass/grid": "^6.0.0",
+    "babel-plugin-styled-components": "^1.10.0",
     "gatsby": "^2.4.2",
     "gatsby-image": "^2.0.41",
+    "gatsby-mdx": "^0.6.3",
+    "gatsby-plugin-catch-links": "^2.0.13",
+    "gatsby-plugin-google-analytics": "^2.0.19",
     "gatsby-plugin-manifest": "^2.1.1",
     "gatsby-plugin-offline": "^2.1.0",
     "gatsby-plugin-react-helmet": "^3.0.12",
     "gatsby-plugin-sharp": "^2.0.36",
+    "gatsby-plugin-sitemap": "^2.1.0",
+    "gatsby-plugin-styled-components": "^3.0.7",
+    "gatsby-plugin-typography": "^2.2.13",
+    "gatsby-remark-images": "^3.0.11",
     "gatsby-source-filesystem": "^2.0.33",
     "gatsby-transformer-sharp": "^2.1.19",
+    "mapbox-gl": "^0.54.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-helmet": "^5.2.1"
+    "react-ga": "^2.5.7",
+    "react-helmet": "^5.2.1",
+    "react-icons": "^3.6.1",
+    "react-typography": "^0.16.19",
+    "rebass": "^3.1.0",
+    "styled-components": "^4.2.0",
+    "styled-system": "^4.1.0",
+    "typography": "^0.16.19",
+    "typography-theme-noriega": "^0.16.19"
   },
   "devDependencies": {
-    "prettier": "^1.17.0"
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^4.2.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-react": "^7.13.0",
+    "prettier": "^1.17.0",
+    "stylelint-config-recommended": "^2.2.0",
+    "stylelint-config-standard": "^18.3.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-processor-styled-components": "^1.6.0"
   },
   "keywords": [
     "gatsby"
@@ -30,14 +63,13 @@
     "develop": "gatsby develop",
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
-    "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+    "serve": "gatsby serve"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/brendan-ward/gatsby-starter-mapbox/"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/brendan-ward/gatsby-starter-mapbox/issues"
   }
 }
