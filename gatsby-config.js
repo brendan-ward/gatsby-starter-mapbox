@@ -2,9 +2,10 @@ const googleAnalyticsId = `UA-XXXXX`
 
 module.exports = {
   siteMetadata: {
+    siteUrl: `https://gatsby-starter-mapbox.netlify.com/`,
     title: `Gatsby Mapbox GL Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    description: `Get up and running quickly with a Gatsby starter that includes a basic setup for Mapbox GL`,
+    author: `Brendan C. Ward`,
     googleAnalyticsId,
   },
   plugins: [
