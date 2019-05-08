@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Brendan C. Ward <bcward@astutespruce.com>",
   "dependencies": {
+    "@mapbox/geo-viewport": "^0.4.0",
     "@mdx-js/mdx": "^1.0.16",
     "@mdx-js/react": "^1.0.16",
     "@rebass/grid": "^6.0.0",
@@ -24,6 +25,7 @@
     "gatsby-remark-images": "^3.0.11",
     "gatsby-source-filesystem": "^2.0.33",
     "gatsby-transformer-sharp": "^2.1.19",
+    "immutable": "^4.0.0-rc.12",
     "mapbox-gl": "^0.54.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
