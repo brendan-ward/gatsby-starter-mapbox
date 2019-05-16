@@ -12,13 +12,6 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
-    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -32,33 +25,6 @@ module.exports = {
       resolve: `gatsby-plugin-typography`,
       options: {
         pathToConfigModule: `./config/typography.js`,
-      },
-    },
-    // MDX pages can't be in /pages, so we need to provide the source filesystem
-    // for an alternative location
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/src/content`,
-        name: `content`,
-      },
-    },
-    {
-      resolve: `gatsby-mdx`,
-      options: {
-        extensions: [`.mdx`, `.md`],
-        gatsbyRemarkPlugins: [
-          {
-            resolve: `gatsby-remark-images`,
-            options: {
-              showCaptions: true,
-              linkImagesToOriginal: false,
-              quality: 95,
-              maxWidth: 960,
-              withWebp: true,
-            },
-          },
-        ],
       },
     },
     `gatsby-plugin-catch-links`,

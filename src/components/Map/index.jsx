@@ -7,6 +7,7 @@ import 'mapbox-gl/dist/mapbox-gl.css'
 import styled from 'style'
 import { hasWindow } from 'util/dom'
 import { getCenterAndZoom } from './util'
+import StyleSelector from './StyleSelector'
 
 import { siteMetadata } from '../../../gatsby-config'
 
@@ -31,6 +32,14 @@ const Map = ({
   minZoom,
   maxZoom,
 }) => {
+  const { mapboxToken } = siteMetadata
+
+  if (!mapboxToken) {
+    console.error(
+      'ERROR: Mapbox token is required in gatsby-config.js siteMetadata'
+    )
+  }
+
   // if there is no window, we cannot render this component
   if (!hasWindow) {
     return null
@@ -47,14 +56,6 @@ const Map = ({
   // this allows us to construct it only once at the time the
   // component is constructed.
   useEffect(() => {
-    const { mapboxToken } = siteMetadata
-
-    if (!mapboxToken) {
-      console.error(
-        'ERROR: Mapbox token is required in gatsby-config.js siteMetadata'
-      )
-    }
-
     let mapCenter = center
     let mapZoom = zoom
 
@@ -74,7 +75,7 @@ const Map = ({
 
     const map = new mapboxgl.Map({
       container: mapNode.current,
-      style: styles[0],
+      style: `mapbox://styles/mapbox/${styles[0]}`,
       center: mapCenter,
       zoom: mapZoom,
       minZoom,
@@ -85,7 +86,18 @@ const Map = ({
 
     map.addControl(new mapboxgl.NavigationControl(), 'top-right')
 
+    if (styles.length > 1) {
+      map.addControl(
+        new StyleSelector({
+          styles,
+          token: mapboxToken,
+        }),
+        'bottom-left'
+      )
+    }
+
     map.on('load', () => {
+      console.log('map onload')
       // add sources
       Object.entries(sources).forEach(([id, source]) => {
         map.addSource(id, source)
@@ -113,6 +125,7 @@ const Map = ({
   return (
     <Wrapper width={width} height={height}>
       <div ref={mapNode} style={{ width: '100%', height: '100%' }} />
+      {/* <StyleSelector map={mapRef.current} styles={styles} token={mapboxToken} /> */}
     </Wrapper>
   )
 }
@@ -132,14 +145,14 @@ Map.propTypes = {
 }
 
 Map.defaultProps = {
-  width: '100%',
+  width: 'auto',
   height: '100%',
   center: [0, 0],
   zoom: 0,
   bounds: null,
   minZoom: 0,
   maxZoom: 24,
-  styles: ['mapbox://styles/mapbox/light-v9'],
+  styles: ['light-v9', 'dark-v9', 'streets-v11'],
   padding: 0.1, // padding around bounds as a proportion
   sources: {},
   layers: [],

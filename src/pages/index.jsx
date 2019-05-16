@@ -28,9 +28,9 @@ const IndexPage = () => (
 
       <Section>
         <h3>
-          Example: a fluid map that fills the container and a different style:
+          Example: a fluid map that fills the container and different styles:
         </h3>
-        <Map height="400px" styles={['mapbox://styles/mapbox/dark-v9']} />
+        <Map height="400px" styles={['dark-v9', 'light-v9']} />
       </Section>
 
       <Section>
