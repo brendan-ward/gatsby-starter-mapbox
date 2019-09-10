@@ -7,8 +7,7 @@ module.exports = {
     description: `Get up and running quickly with a Gatsby starter that includes a basic setup for Mapbox GL`,
     author: `Brendan C. Ward`,
     googleAnalyticsId,
-    mapboxToken:
-      'pk.eyJ1IjoiYmN3YXJkIiwiYSI6InJ5NzUxQzAifQ.CVyzbyOpnStfYUQ_6r8AgQ',
+    mapboxToken: process.env.GATSBY_MAPBOX_API_TOKEN,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
