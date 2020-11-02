@@ -56,6 +56,7 @@ const Map = ({
   // this allows us to construct it only once at the time the
   // component is constructed.
   useEffect(() => {
+    console.log('in effect')
     let mapCenter = center
     let mapZoom = zoom
 
@@ -111,13 +112,14 @@ const Map = ({
 
     // hook up map events here, such as click, mouseenter, mouseleave
     // e.g., map.on('click', (e) => {})
-
     // when this component is destroyed, remove the map
+
     return () => {
       map.remove()
     }
   }, [])
 
+  // based on incoming props.  Just beware that you might need to add additional
   // You can use other `useEffect` hooks to update the state of the map
   // based on incoming props.  Just beware that you might need to add additional
   // refs to share objects or state between hooks.
@@ -149,8 +151,8 @@ Map.defaultProps = {
   height: '100%',
   center: [0, 0],
   zoom: 0,
-  bounds: null,
   minZoom: 0,
+  bounds: null,
   maxZoom: 24,
   styles: ['light-v9', 'dark-v9', 'streets-v11'],
   padding: 0.1, // padding around bounds as a proportion
